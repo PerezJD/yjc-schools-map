@@ -1,0 +1,78 @@
+ul.yjc-school-list {
+    list-style: none;
+    float: unset;
+}
+
+.yjc-school-list, .yjc-school-list-header {
+    padding: 0;
+}
+
+.yjc-school-list-header > * {
+    align-self: center;
+}
+
+.yjc-school-list-borough-title {
+    margin: 0;
+    line-height: normal;
+    border-bottom: 3px solid #ffc600;
+    display: none;
+    grid-row: 1;
+}
+
+.yjc-school-list-item {
+    display: block;
+    float: unset;
+    padding: 15px;
+    outline-color: lightgray;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+
+    grid-column: auto / span 4;
+}
+
+.yjc-school-list-item .sqsrte-large {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 495px) {
+    .yjc-school-list-borough-title {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 495px) and (max-width: 767px) {
+    .yjc-school-list-borough-title {
+        grid-column: 1 / span 4;
+    }
+
+    .yjc-school-list-item {
+        grid-column: auto / span 4;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+    .yjc-school-list-borough-title {
+        grid-column: 1 / span 3;
+    }
+
+    .yjc-school-list-item {
+        grid-column: auto / span 3;
+    }
+}
+
+@media screen and (min-width: 1001px) {
+    .yjc-school-list-borough-title {
+        grid-column: 1 / span 4;
+    }
+
+    .yjc-school-list-item {
+        grid-column: auto / span 3;
+    }
+}
+
+.transitionFadeIn {
+    white-space: pre-wrap;
+    transition-timing-function: ease;
+    transition-duration: 1.5s;
+    transition-delay: 0.105344s;
+}

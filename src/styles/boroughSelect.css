@@ -1,0 +1,76 @@
+.yjc-borough-select-fieldset {
+    display: flex;
+    padding: 0;
+    border: 0 transparent;
+    grid-column: 1 / span 12;
+    grid-row: 1;
+}
+
+@media screen and (min-width: 495px) and (max-width: 767px) {
+    .yjc-borough-select-fieldset {
+        grid-column: 5 / span 4;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .yjc-borough-select-fieldset {
+        grid-column: 6 / span 4;
+    }
+}
+
+@media screen and (min-width: 1001px) {
+    .yjc-borough-select-fieldset {
+        grid-column: 9 / span 4;
+    }
+}
+
+.yjc-borough-select-label {
+    font-family: roc-grotesk, Helvetica, Arial sans-serif;
+    color: #383838;
+    padding: 3px 10px;
+    line-height: 2.3rem;
+}
+
+.yjc-borough-select-control {
+    flex-grow: 2;
+}
+
+.yjc-borough-select-control.solid-select-container {
+    margin: 0;
+    color: lightgrey;
+}
+
+.yjc-borough-select-control .solid-select-single-value {
+    font-family: roc-grotesk, Helvetica, Arial sans-serif;
+    color: #383838;
+    line-height: 2;
+}
+
+.yjc-borough-select-control .solid-select-control {
+    border: 1px solid lightgrey;
+    line-height: 1;
+}
+
+.yjc-borough-select-control .solid-select-placeholder {
+    font-family: roc-grotesk, Helvetica, Arial sans-serif;
+    color: #383838;
+    line-height: normal;
+}
+
+.yjc-borough-select-control .solid-select-list {
+    background: #f4f4f3;
+}
+
+.yjc-borough-select-control .solid-select-option {
+    font-family: roc-grotesk, Helvetica, Arial sans-serif;
+    color: #383838;
+}
+
+.yjc-borough-select-control .solid-select-option:hover {
+    background-color: #ffc600;
+    color: #000000;
+}
+.yjc-borough-select-control .solid-select-option[data-focused=true] {
+    background-color: #ffc600;
+    color: #000000;
+}
