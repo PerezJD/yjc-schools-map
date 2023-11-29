@@ -1,7 +1,7 @@
 import {Component, createEffect, For, onMount, Show} from "solid-js";
 import {createStore} from "solid-js/store";
 import {Loader} from "@googlemaps/js-api-loader";
-import {Borough, BOROUGH_DISPLAY_NAME, BOROUGH_POSITIONS, School, SchoolMarker} from "../models";
+import {Borough, BOROUGH_POSITIONS, School, SchoolMarker} from "../models";
 import BoroughSelect from "./BoroughSelect";
 
 // Styles
@@ -26,10 +26,9 @@ interface CityMapState {
 const DEFAULT_ZOOM = 11;
 
 const CityMap: Component<CityMapProps> = ({ apiKey, schools = [], additionalOptions }) => {
-  console.log('Rendering CityMap');
   const [state, setState] = createStore<CityMapState>({
     map: null,
-    borough: Borough.MANHATTAN,
+    borough: Borough.ALL,
     schoolMarkers: [],
     visibleSchools: []
   });
@@ -45,7 +44,7 @@ const CityMap: Component<CityMapProps> = ({ apiKey, schools = [], additionalOpti
     `;
 
     return mc;
-  }
+  };
 
   onMount(async () => {
     const loader = new Loader({
@@ -69,7 +68,7 @@ const CityMap: Component<CityMapProps> = ({ apiKey, schools = [], additionalOpti
 
       try {
         const marker = new AdvancedMarkerElement({
-          map: null,
+          map,
           position: school.position,
           title: school.name
         });
@@ -96,7 +95,8 @@ const CityMap: Component<CityMapProps> = ({ apiKey, schools = [], additionalOpti
     setState((prev) => ({
       ...prev,
       map,
-      schoolMarkers
+      schoolMarkers,
+      visibleSchools: schoolMarkers
     }));
   });
 
@@ -110,7 +110,7 @@ const CityMap: Component<CityMapProps> = ({ apiKey, schools = [], additionalOpti
     map.setZoom(DEFAULT_ZOOM);
 
     const visibleSchools = state.schoolMarkers.reduce((visibleSchools: SchoolMarker[], schoolMarker) => {
-      if(schoolMarker.borough === realBorough) {
+      if(realBorough === Borough.ALL || schoolMarker.borough === realBorough) {
         schoolMarker.marker.setMap(map);
         visibleSchools.push(schoolMarker);
       } else {
@@ -127,13 +127,6 @@ const CityMap: Component<CityMapProps> = ({ apiKey, schools = [], additionalOpti
     <div id="yjc-borough-map-container">
       <div id="yjc-borough-map" style={{ width: "100%" }}/>
       <div class="yjc-school-list-container grid-container">
-        <h3 class="transitionFadeIn yjc-school-list-borough-title">
-          <span
-            class="sqsrte-text-highlight"
-            data-text-attribute-id="ded9e9df-aeaf-4991-998d-59b8d30569a3">
-            {BOROUGH_DISPLAY_NAME[state.borough]}
-          </span>
-        </h3>
         <BoroughSelect onChange={(value) => setState('borough', value.name)} />
       </div>
       <Show when={state.schoolMarkers.length}>

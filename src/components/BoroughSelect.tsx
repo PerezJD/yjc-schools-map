@@ -9,6 +9,7 @@ import "../styles/boroughSelect.css";
 const BoroughSelect: Component<{ onChange?: (value: Value) => void; }> = ({ onChange }) => {
 
   const options = [
+    { label: 'All', name: Borough.ALL },
     { label: 'Manhattan', name: Borough.MANHATTAN },
     { label: 'Brooklyn', name: Borough.BROOKLYN },
     { label: 'Queens', name: Borough.QUEENS },
@@ -18,9 +19,6 @@ const BoroughSelect: Component<{ onChange?: (value: Value) => void; }> = ({ onCh
 
   return (
     <fieldset class="yjc-borough-select-fieldset">
-      <label class="yjc-borough-select-label" for="yjc-borough-select">
-        Select Borough:
-      </label>
       <Select
         id="yjc-borough-select"
         class="yjc-borough-select-control"

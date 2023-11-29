@@ -1,4 +1,5 @@
 export enum Borough {
+  ALL='all',
   MANHATTAN='manhattan',
   BROOKLYN='brooklyn',
   QUEENS='queens',
@@ -24,17 +25,11 @@ export interface SchoolMarker extends School {
   marker: any;
 }
 
-export const BOROUGH_DISPLAY_NAME = {
-  [Borough.MANHATTAN]: 'Manhattan',
-  [Borough.BROOKLYN]: 'Brooklyn',
-  [Borough.QUEENS]: 'Queens',
-  [Borough.BRONX]: 'The Bronx',
-  [Borough.THE_BRONX]: 'The Bronx',
-  [Borough.SI]: 'Staten Island',
-  [Borough.STATEN_ISLAND]: 'Staten Island'
-}
-
 export const BOROUGH_POSITIONS = {
+  [Borough.ALL]: {
+    lat: 40.782912242718,
+    lng: -73.96605840292472
+  },
   [Borough.MANHATTAN]: {
     lat: 40.782912242718,
     lng: -73.96605840292472
