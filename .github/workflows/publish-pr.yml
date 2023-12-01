@@ -42,7 +42,7 @@ jobs:
           REF: '${{ steps.extract_branch.outputs.branch }}'
         with:
           script: |
-            const { REF } = process.env
+            const { REF, TAGNAME } = process.env
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
