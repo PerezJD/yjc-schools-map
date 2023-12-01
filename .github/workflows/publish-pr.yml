@@ -29,9 +29,11 @@ jobs:
         id: pr_tagname
         run: |
           git fetch --prune --all --depth=500
+          git checkout --track origin/main
           LATEST_TAG=$(git describe --abbrev=0 --tags)
           COMMIT=$(git rev-parse --short HEAD)
           echo "tagname=${LATEST_TAG}-${COMMIT}" >> $GITHUB_OUTPUT
+          git checkout "${{ steps.extract_branch.outputs.branch }}"
 
       - name: Create tag
         uses: actions/github-script@v5
