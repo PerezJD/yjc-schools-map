@@ -28,7 +28,7 @@ jobs:
       - name: Get PR Tag name
         id: pr_tagname
         run: |
-          git checkout main
+          git checkout --track origin/main
           git fetch --prune --depth=500 --tags
           git checkout "${{ steps.extract_branch.outputs.branch }}"
           LATEST_TAG=$(git describe --abbrev=0 --tags)
