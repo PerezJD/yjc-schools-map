@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: TAG=$(git describe --abrev=0 --tags)
+      - run: TAG=$(git describe --abbrev=0 --tags)
       - run: COMMIT=$(git rev-parse --short HEAD)
       - run: VERSION="${TAG}-${COMMIT}"
       - uses: tvdias/github-tagger@v0.0.1
