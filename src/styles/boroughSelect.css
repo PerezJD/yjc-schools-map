@@ -1,3 +1,7 @@
+.solid-select-container, .solid-select-container * {
+    box-sizing: border-box;
+}
+
 .yjc-borough-select-fieldset {
     display: flex;
     padding: 0;
