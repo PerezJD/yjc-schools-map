@@ -37,11 +37,14 @@ jobs:
 
       - name: Create tag
         uses: actions/github-script@v5
+        env:
+          REF: '${{ steps.extract_branch.outputs.branch }}'
         with:
           script: |
+            const { REF } = process.env
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: 'refs/tags/${{ steps.pr_tagname.outputs.branch }}',
+              ref: `refs/tags/${REF}`,
               sha: context.sha
             })
