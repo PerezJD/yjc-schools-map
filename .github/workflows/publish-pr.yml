@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
+      - run: git fetch --prune --depth=500 --tags
       - run: TAG=$(git describe --abbrev=0 --tags)
       - run: COMMIT=$(git rev-parse --short HEAD)
       - run: VERSION="${TAG}-${COMMIT}"
