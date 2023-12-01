@@ -39,7 +39,6 @@ jobs:
         uses: actions/github-script@v5
         env:
           TAGNAME: '${{ steps.pr_tagname.outputs.tagname }}'
-          REF: '${{ steps.extract_branch.outputs.branch }}'
         with:
           script: |
             const { REF, TAGNAME } = process.env
