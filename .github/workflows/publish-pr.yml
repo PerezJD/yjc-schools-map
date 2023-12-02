@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: distribution
-          path: /dist
+          path: dist/assets
 
   release:
     runs-on: ubuntu-latest
