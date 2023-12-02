@@ -78,6 +78,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.pre_release_name }}
-          path: ${{ runner.temp }}/${{ env.pre_release_name }}.tar
+          path: ${{ runner.temp }}/${{ env.pre_release_name }}.tar.gz
           retention-days: 5
           if-no-files-found: error
