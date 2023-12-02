@@ -15,7 +15,20 @@ jobs:
           node-version: '18'
       - run: npm install
       - run: npm run build
-      - run:
+
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Create tag
+        uses: actions/github-script@v5
+        env:
+          TAGNAME: '${{ steps.pr_tagname.outputs.tagname }}'
+        with:
+          script: |
+            const { REF, TAGNAME } = process.env
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/tags/${TAGNAME}`,
+              sha: context.sha
+            })
