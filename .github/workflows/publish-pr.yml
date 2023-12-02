@@ -68,11 +68,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ env.pre_release_name }}
+          path: ${{ runner.temp }}/dist
+
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.pre_release_name }}
-          path: ${{ runner.temp }}/${{ env.pre_release_name }}.tar
+          path: ${{ runner.temp }}/dist/${{ env.pre_release_name }}.tar
           retention-days: 5
           if-no-files-found: error
