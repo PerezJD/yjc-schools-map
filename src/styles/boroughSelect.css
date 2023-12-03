@@ -30,7 +30,6 @@
 
 .yjc-borough-select-label {
     font-family: roc-grotesk, Helvetica, Arial sans-serif;
-    color: #383838;
     padding: 3px 10px;
     line-height: 2.3rem;
 }
@@ -46,35 +45,33 @@
 
 .yjc-borough-select-control .solid-select-single-value {
     font-family: roc-grotesk, Helvetica, Arial sans-serif;
-    color: #383838;
     line-height: 2;
 }
 
 .yjc-borough-select-control .solid-select-control {
-    border: 1px solid lightgrey;
+    border-radius: var(--form-field-shape-border-top-left-radius) var(--form-field-shape-border-top-right-radius) var(--form-field-shape-border-bottom-right-radius) var(--form-field-shape-border-bottom-left-radius);
+    border: var(--form-field-border-thickness) solid var(--tweak-form-block-field-border-color);
+    background-color: var(--tweak-form-block-background-color);
     line-height: 1;
 }
 
 .yjc-borough-select-control .solid-select-placeholder {
     font-family: roc-grotesk, Helvetica, Arial sans-serif;
-    color: #383838;
+    color: var(--tweak-form-block-caption-color);
     line-height: 2;
 }
 
 .yjc-borough-select-control .solid-select-list {
-    background: #f4f4f3;
+    background-color: var(--list-section-simple-card-color);
 }
 
 .yjc-borough-select-control .solid-select-option {
     font-family: roc-grotesk, Helvetica, Arial sans-serif;
-    color: #383838;
+    color: var(--tweak-form-block-option-color);
 }
 
-.yjc-borough-select-control .solid-select-option:hover {
-    background-color: #ffc600;
-    color: #000000;
-}
+.yjc-borough-select-control .solid-select-option:hover,
 .yjc-borough-select-control .solid-select-option[data-focused=true] {
-    background-color: #ffc600;
-    color: #000000;
+    background-color: var(--primaryButtonBackgroundColor);
+    color: var(--primaryButtonTextColor);
 }

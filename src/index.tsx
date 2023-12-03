@@ -12,15 +12,20 @@ const SHEET_NAME = import.meta.env.VITE_SHEET_NAME;
 const localCache = new LocalCache('yjc');
 const googleSheetQuery = new GoogleSheetsQuery(DOCUMENT_ID, SHEET_NAME);
 
-const pagePoll = setInterval(() => {
-  const root = document.getElementById('yjc-map');
-  if (root !== null) {
-    clearInterval(pagePoll);
+const loadMap = () => {
+  const interval = setInterval(() => {
+    const root = document.getElementById('yjc-map');
+    if (root !== null) {
+      clearInterval(interval);
+      document.removeEventListener("DOMContentLoaded", loadMap);
 
-    render(() => <App
-      cache={localCache}
-      googleSheetQuery={googleSheetQuery}
-      googleMapsApiKey={GOOGLE_MAPS_API_KEY}
-    />, root);
-  }
-}, 500);
+      render(() => <App
+        cache={localCache}
+        googleSheetQuery={googleSheetQuery}
+        googleMapsApiKey={GOOGLE_MAPS_API_KEY}
+      />, root);
+    }
+  }, 500);
+};
+
+document.addEventListener("DOMContentLoaded", loadMap);
