@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
-// import devtools from 'solid-devtools/vite';
 
 export default defineConfig({
   plugins: [
@@ -16,6 +15,13 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    minify: 'esbuild'
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
   }
 });

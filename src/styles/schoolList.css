@@ -11,27 +11,18 @@ ul.yjc-school-list {
     align-self: center;
 }
 
-.yjc-school-list-borough-title {
-    margin: 0;
-    line-height: normal;
-    border-bottom: 3px solid #ffc600;
-    display: none;
-    grid-row: 1;
-}
-
 .yjc-school-list-item {
     display: block;
     float: unset;
-    padding: 15px;
-    outline-color: lightgray;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-
     grid-column: auto / span 4;
+
+    padding: 1rem;
+    background-color: var(--list-section-simple-card-color);
 }
 
-.yjc-school-list-item .sqsrte-large {
+.yjc-school-list-item h4 {
     text-decoration: underline;
+    text-decoration-color: var(--paragraphLinkColor);
 }
 
 @media screen and (min-width: 495px) {
@@ -63,10 +54,6 @@ ul.yjc-school-list {
 @media screen and (min-width: 1001px) {
     .yjc-school-list-borough-title {
         grid-column: 1 / span 4;
-    }
-
-    .yjc-school-list-item {
-        grid-column: auto / span 3;
     }
 }
 
